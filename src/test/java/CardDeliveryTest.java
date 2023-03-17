@@ -8,7 +8,6 @@ public class CardDeliveryTest {
     @Test
     void shouldRegisterByAccountDeliveryCard() {
         open("http://localhost:9999/");
-        Configuration.holdBrowserOpen = true;
     }
 }
 
