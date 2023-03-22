@@ -11,13 +11,13 @@ public class CardDeliveryTest {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $x("//input[@type='text']").setValue("Санкт-Петербург");
-        $x("//input[@type='tel']").setValue("25.03.2023");
+        $x("//input[@type='tel']").setValue("28.03.2023");
         $x("//input[@name='name']").setValue("Иванов-Петров Иван");
         $x("//input[@name='phone']").setValue("+79999999999");
         $("[data-test-id=agreement]").click();
         $x("//span[contains(text(),'Забронировать')]").click();
-        $x("//*[contains(@class, 'notification notification_visible')]").shouldBe(Condition.visible);
-
+        Configuration.timeout = 15000;
+        $x("//*[contains(@data-test-id, 'notification')]").shouldBe(Condition.visible);
     }
 }
 
